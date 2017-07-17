@@ -82,7 +82,7 @@ resource "aws_elb" "example" {
     healthy_threshold   = 2
     unhealthy_threshold = 2
     timeout             = 3
-    interval            = 30
+    interval            = 60
     target              = "HTTP:${var.server_port}/"
   }
 }
@@ -92,7 +92,7 @@ resource "aws_elb" "example" {
 resource "aws_security_group" "elb-sg" {
   name = "${var.cluster_name}-elb"
   tags {
-    Name = "${var.cluster_name}-elb"  
+    Name = "${var.cluster_name}-elb"
   }
 }
 
